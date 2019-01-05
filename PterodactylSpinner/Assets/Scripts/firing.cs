@@ -7,17 +7,26 @@ public class firing : MonoBehaviour {
     public Transform firepoint;
     public GameObject shotPrefab;
 
-    // Update is called once per frame
+    // code for shooting in each direction, altering the speed and axis depending on the button pressed.
     void Update() {
-        if (Input.GetKeyDown("d"))
+        if (Input.GetKeyDown(KeyCode.RightArrow)){
+            GameObject go = (GameObject)Instantiate(shotPrefab, transform.position, Quaternion.identity);
+            go.GetComponent<Shot>().xSpeed = 0.2f;
+        }
+        else if (Input.GetKeyDown(KeyCode.LeftArrow))
         {
-            Shoot();
+            GameObject go = (GameObject)Instantiate(shotPrefab, transform.position, Quaternion.identity);
+            go.GetComponent<Shot>().xSpeed = -0.2f;
+        }
+        else if (Input.GetKeyDown(KeyCode.UpArrow))
+        {
+            GameObject go = (GameObject)Instantiate(shotPrefab, transform.position, Quaternion.identity);
+            go.GetComponent<Shot>().ySpeed = 0.2f;
+        }
+        else if (Input.GetKeyDown(KeyCode.DownArrow))
+        {
+            GameObject go = (GameObject)Instantiate(shotPrefab, transform.position, Quaternion.identity);
+            go.GetComponent<Shot>().ySpeed = -0.2f;
         }
     }
-
-    void Shoot ()
-    {
-        Instantiate(shotPrefab, firepoint.position, firepoint.rotation);
-    }
-	
 }

@@ -23,6 +23,7 @@ GameObject:
   - component: {fileID: 50619205305239328}
   - component: {fileID: 58102998577958390}
   - component: {fileID: 114710763078244200}
+  - component: {fileID: 114528142323124342}
   m_Layer: 0
   m_Name: Shot
   m_TagString: Untagged
@@ -38,7 +39,7 @@ Transform:
   m_GameObject: {fileID: 1353566995313504}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 1.389, y: -2.31, z: -0.5}
-  m_LocalScale: {x: 1, y: 0.6125, z: 1}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -78,6 +79,17 @@ CircleCollider2D:
   m_Offset: {x: 0.000000059604645, y: -0.0038616024}
   serializedVersion: 2
   m_Radius: 0.083443105
+--- !u!114 &114528142323124342
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1353566995313504}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8dad58a544fa18440a22b98a57e82e6f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114710763078244200
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -89,7 +101,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: adc24d1e6b2d3514e93f878fb147e247, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 20
+  ySpeed: 0
+  xSpeed: 0
+  damage: 1
   rb: {fileID: 50619205305239328}
 --- !u!212 &212395547429163536
 SpriteRenderer:
