@@ -6,8 +6,15 @@ public class Pterodactyl : MonoBehaviour
 {
     // creating feilds in the inspector for health and speed
     public int health = 3;
-    public float speed = -0.1f;
+    public float speed = 30;
+    private Rigidbody2D rb;
 
+    void Start()
+    {
+        rb = GetComponent<Rigidbody2D>();
+        Vector2 movement = new Vector2(-1, -0.0f);
+        rb.AddForce(movement * speed);
+    }
     // establishing how the Pterodactyl takes damage when it interacts with the shot
     // and then is destroyed once its health reaches zero
     public void TakeDamage(int damage)
