@@ -2,10 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-//Code for the player to control the chair using WASD
-
-public class Movement : MonoBehaviour
+public class Traversal: MonoBehaviour
 {
+
     [SerializeField]
     private float speed;
 
@@ -27,7 +26,7 @@ public class Movement : MonoBehaviour
     {
         direction = Vector2.zero;
 
-        if(Input.GetKeyUp(KeyCode.W))
+        if (Input.GetKeyUp(KeyCode.W))
         {
 
             direction += Vector2.up;

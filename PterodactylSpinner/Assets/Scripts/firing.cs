@@ -6,6 +6,10 @@ public class firing : MonoBehaviour {
 
     public Transform firepoint;
     public GameObject shotPrefab;
+    public GameObject[] shotlist;
+    public int MaxShots = 20;
+
+    
 
     // code for shooting in each direction, altering the speed and axis depending on the button pressed.
     void Update() {

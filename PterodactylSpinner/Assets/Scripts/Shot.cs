@@ -6,7 +6,6 @@ using UnityEngine;
 
 public class Shot : MonoBehaviour
 {
-
     public float ySpeed;
     public float xSpeed;
     public int damage = 1;

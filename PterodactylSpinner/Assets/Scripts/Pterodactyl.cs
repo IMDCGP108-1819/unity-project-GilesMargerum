@@ -1,18 +1,22 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.UI;
 using UnityEngine;
 
 public class Pterodactyl : MonoBehaviour
 {
-    // creating feilds in the inspector for health and speed
+    // creating fields in the inspector for health and speed
     public int health = 3;
-    public float speed = 30;
+    public float speed;
+  
+
+
     private Rigidbody2D rb;
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        Vector2 movement = new Vector2(-1, -0.0f);
+        Vector2 movement = new Vector2(1, 0.0f);
         rb.AddForce(movement * speed);
     }
     // establishing how the Pterodactyl takes damage when it interacts with the shot
@@ -31,4 +35,5 @@ public class Pterodactyl : MonoBehaviour
     {
         Destroy(gameObject);
     }
+
 }
