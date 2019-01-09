@@ -4,13 +4,14 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class ScoreKeeping : MonoBehaviour
+public class PterosRemaining : MonoBehaviour
+
 {
 
-    public static ScoreKeeping instance;
+    public static PterosRemaining instance;
 
     private TextMeshProUGUI textMeshH;
-    public int count;
+    public int count2;
 
     private void Awake()
     {
@@ -20,19 +21,21 @@ public class ScoreKeeping : MonoBehaviour
         }
     }
 
-    void Start () {
+    void Start()
+    {
         textMeshH = GetComponent<TextMeshProUGUI>();
-        count = 0;
+        count2 = 3;
     }
 
 
     void Update()
     {
-        textMeshH.text = "Fails " + count.ToString() + "/5";
-        if (ScoreKeeping.instance.count >= 4)
+        textMeshH.text = "Pterodactyls Unspun " + count2.ToString();
+        if (PterosRemaining.instance.count2 <= 1)
         {
-            SceneManager.LoadScene("Game Over");
+            SceneManager.LoadScene("Win Screen");
         }
     }
+
 
 }

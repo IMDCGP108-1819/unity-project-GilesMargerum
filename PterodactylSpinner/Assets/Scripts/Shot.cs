@@ -22,9 +22,15 @@ public class Shot : MonoBehaviour
     {
         Pterodactyl pterodactyl = hitinfo.GetComponent<Pterodactyl>();
         
-        {
             pterodactyl.TakeDamage(damage);
-        }
+        
+        Destroy(gameObject);
+
+        Pterodactylb pterodactylb = hitinfo.GetComponent<Pterodactylb>();
+        
+            pterodactylb.TakeDamage(damage);
+        
         Destroy(gameObject);
     }
 }
+

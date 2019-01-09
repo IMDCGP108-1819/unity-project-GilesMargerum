@@ -6,7 +6,7 @@ public class PteroDetector : MonoBehaviour {
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if(collision.gameObject.tag == "Pterodactyl")
+        if (collision.gameObject.CompareTag ("Pterodactyl")|| collision.gameObject.CompareTag ("Pterodactylb"))
         {
             //add 1 point to the counter
             ScoreKeeping.instance.count += 1;
@@ -14,15 +14,4 @@ public class PteroDetector : MonoBehaviour {
             Destroy(collision.gameObject);
         }
     }
-
-    // Use this for initialization
-    void Start () {
-		
-	}
-
-	// Update is called once per frame
-	void Update () {
-	
-	}
-   
 }
