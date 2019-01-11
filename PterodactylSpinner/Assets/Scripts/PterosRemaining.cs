@@ -25,7 +25,7 @@ public class PterosRemaining : MonoBehaviour
     void Start()
     {
         textMeshH = GetComponent<TextMeshProUGUI>();
-        count2 = 3;
+        count2 = 10;
     }
 
     //if the counter reaches 0 it changes scene to the win screen.
