@@ -7,8 +7,6 @@ public class PlayerControl: MonoBehaviour
 
     public Transform firepoint;
     public GameObject shotPrefab;
-    public GameObject[] shotlist;
-    public int MaxShots = 20;
 
     [SerializeField]
     private float speed;
@@ -16,7 +14,7 @@ public class PlayerControl: MonoBehaviour
 
     public void Update()
     {
-        
+        //Firing up, left and right.
         if (Input.GetKeyDown(KeyCode.RightArrow))
         {
             GameObject go = (GameObject)Instantiate(shotPrefab, transform.position, Quaternion.identity);
@@ -32,15 +30,43 @@ public class PlayerControl: MonoBehaviour
             GameObject go = (GameObject)Instantiate(shotPrefab, transform.position, Quaternion.identity);
             go.GetComponent<Shot>().ySpeed = 0.2f;
         }
-        else if (Input.GetKeyDown(KeyCode.DownArrow))
-        {
-            GameObject go = (GameObject)Instantiate(shotPrefab, transform.position, Quaternion.identity);
-            go.GetComponent<Shot>().ySpeed = -0.2f;
-        }
+        //Update function to check if a move command has been made
         GetInput();
         Move();
     }
 
+    // Keeping the Player in the grid
+    private void LateUpdate()
+    {
+        float currentx = transform.position.x;
+        float currenty = transform.position.y;
+
+        // Left
+        if (currentx < -2f)
+        {
+            transform.position = new Vector2(-2f, currenty);
+        }
+
+        //Right
+        if (currentx > 2f)
+        {
+            transform.position = new Vector2(2f, currenty);
+        }
+
+        //Top
+        if (currenty > 0.0f)
+        {
+            transform.position = new Vector2(currentx, 0.0f);
+        }
+
+        //Bottom
+        if (currenty < -4f)
+        {
+            transform.position = new Vector2(currentx, -4f);
+        }
+
+    }
+    //Functions to move the player in each direction. Speed set in the inspector window.
     void Move()
     {
         transform.Translate(direction * speed);

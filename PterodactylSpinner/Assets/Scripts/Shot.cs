@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-//Code for the bullet to travel when fired 
+//Code for the bullet to travel when fired and the damage it will deal to the Pterodactyls
 
 public class Shot : MonoBehaviour
 {
@@ -17,20 +17,17 @@ public class Shot : MonoBehaviour
         position.x += xSpeed;
         transform.position = position;  
     }
-    // Deleting itself (currently) upon interacting with the Pterodactyl and dealing it damage.
+    // Deleting itself upon interacting with the Pterodactyl.
+    //Causing the TakeDamage method to activate dealing damage and checking how many pterodactyls have been defeated
     void OnTriggerEnter2D(Collider2D hitinfo)
     {
-        Pterodactyl pterodactyl = hitinfo.GetComponent<Pterodactyl>();
-        
+        PteroHealth pterodactyl = hitinfo.GetComponent<PteroHealth>();
+        if (pterodactyl != null)
+        {
             pterodactyl.TakeDamage(damage);
-        
-        Destroy(gameObject);
 
-        Pterodactylb pterodactylb = hitinfo.GetComponent<Pterodactylb>();
-        
-            pterodactylb.TakeDamage(damage);
-        
-        Destroy(gameObject);
+            Destroy(gameObject);
+        }
     }
 }
 

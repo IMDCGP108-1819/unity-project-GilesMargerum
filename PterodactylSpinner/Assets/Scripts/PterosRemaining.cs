@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 public class PterosRemaining : MonoBehaviour
 
 {
+    //This script checks how many Pterodactyls have been destroyed by shooting.
 
     public static PterosRemaining instance;
 
@@ -27,11 +28,11 @@ public class PterosRemaining : MonoBehaviour
         count2 = 3;
     }
 
-
+    //if the counter reaches 0 it changes scene to the win screen.
     void Update()
     {
         textMeshH.text = "Pterodactyls Unspun " + count2.ToString();
-        if (PterosRemaining.instance.count2 <= 1)
+        if (PterosRemaining.instance.count2 <= 0)
         {
             SceneManager.LoadScene("Win Screen");
         }
